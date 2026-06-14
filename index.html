@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amit Kumar Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      text-align: center;
+      padding: 30px 20px;
+      min-height: 100vh;
+      transition: 0.5s;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #e94560, #ff6b81);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: bold;
+      box-shadow: 0 0 30px rgba(233, 69, 96, 0.6);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1.glow {
+      font-size: 38px;
+      color: #fff;
+      text-shadow: 0 0 10px #e94560, 0 0 20px #e94560;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      color: #a8a8b3;
+      margin-bottom: 30px;
+    }
+
+    h2 { color: #e94560; margin-bottom: 15px; }
+
+    .about, .contact {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      margin-top: 30px;
+      transition: 0.3s;
+    }
+
+    .about:hover, .contact:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+    }
+
+    .about p, .contact p {
+      font-size: 17px;
+      color: #c5c5d2;
+      margin: 8px 0;
+    }
+
+    .skills { margin-top: 35px; }
+
+    .skill-box {
+      display: inline-block;
+      background: linear-gradient(135deg, #e94560, #ff6b81);
+      color: white;
+      padding: 12px 28px;
+      margin: 8px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+    }
+
+    .skill-box:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6);
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #e94560, #ff6b81);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(233, 69, 96, 0.7);
+    }
+
+    .toggle-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 25px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 30px;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* LIGHT MODE */
+    .light-mode {
+      background: linear-gradient(135deg, #f5f7fa, #e4ecf7, #f5f7fa) !important;
+      color: #1a1a2e !important;
+    }
+
+    .light-mode .about, .light-mode .contact {
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .light-mode .about p, .light-mode .contact p {
+      color: #4a4a5a;
+    }
+
+    .light-mode .tagline { color: #6a6a7a; }
+
+    .light-mode .toggle-btn {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1a1a2e;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .light-mode h1.glow {
+      color: #1a1a2e;
+      text-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+    }
+
+    .light-mode .footer { color: #999; }
+  </style>
+</head>
+<body>
+
+  <button class="toggle-btn" onclick="toggleMode()">☀️ Light Mode</button>
+
+  <div class="container">
+    <div class="profile-pic">AK</div>
+    <h1 class="glow">Namaste! Main Amit Kumar hoon 👋</h1>
+    <p class="tagline">Aspiring Web Developer | Future Tech Star ✨</p>
+
+    <div class="about">
+      <h2>Mere Baare Mein 📖</h2>
+      <p>Main Dindori se hoon.</p>
+      <p>Mujhe web development seekhna bahut pasand hai!</p>
+      <p>Mera sapna hai ek great developer banna! 💻</p>
+    </div>
+
+    <div class="skills">
+      <h2>Meri Skills 🛠️</h2>
+      <div class="skill-box">HTML</div>
+      <div class="skill-box">CSS</div>
+      <div class="skill-box">JavaScript</div>
+      <div class="skill-box">React</div>
+    </div>
+
+    <div class="contact">
+      <h2>Mujhse Milo 📬</h2>
+      <p>📧 amitk900253@gmail.com</p>
+      <p>🔗 github.com/amitkumar</p>
+      <a href="mailto:amitk900253@gmail.com" class="btn">Message Karo 💌</a>
+    </div>
+
+    <p class="footer">Made with ❤️ by Amit Kumar</p>
+  </div>
+
+  <script>
+    const info = {
+      'HTML': `📄 HTML - HyperText Markup Language
+
+🔹 Ye webpage ka skeleton hai
+🔹 Isse headings, paragraphs, images banate hain
+🔹 Tags use hote hain jaise <h1>, <p>, <div>
+🔹 Har website HTML se hi shuru hoti hai
+🔹 Seekhna bahut aasan hai!`,
+
+      'CSS': `🎨 CSS - Cascading Style Sheets
+
+🔹 Ye website ko sundar banata hai
+🔹 Colors, fonts, sizes sab CSS se
+🔹 Dark/Light mode bhi CSS se bana tha!
+🔹 Animations bhi CSS se hoti hain
+🔹 HTML ke bina CSS kuch nahi!`,
+
+      'JavaScript': `⚡ JavaScript
+
+🔹 Website ko interactive banata hai
+🔹 Button click, popups, alerts — sab JS
+🔹 Duniya ki sabse popular language hai
+🔹 Browser mein directly chalta hai!`,
+
+      'React': `⚛️ React
+
+🔹 JavaScript ki powerful library hai
+🔹 Facebook ne 2013 mein banaya
+🔹 Instagram, Netflix React use karte hain
+🔹 Components se website banate hain
+🔹 Job market mein bahut demand hai!`
+    };
+
+    document.querySelectorAll('.skill-box').forEach(box => {
+      box.addEventListener('click', () => alert(info[box.textContent]));
+    });
+
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+      let btn = document.querySelector('.toggle-btn');
+      if (document.body.classList.contains('light-mode')) {
+        btn.textContent = '🌙 Dark Mode';
+      } else {
+        btn.textContent = '☀️ Light Mode';
+      }
+    }
+  </script>
+
+</body>
+</html>
