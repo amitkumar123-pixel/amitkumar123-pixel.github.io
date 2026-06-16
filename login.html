@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Amit Kumar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 35px;
+      border-radius: 20px;
+      max-width: 320px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      color: #e94560;
+      margin-bottom: 20px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 2px solid #e94560;
+      background: #1a1a2e;
+      color: white;
+      font-size: 15px;
+    }
+
+    .login-box input:focus {
+      outline: none;
+      border-color: #ff6b81;
+      box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper input {
+      padding-right: 40px;
+    }
+
+    .password-wrapper span {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-35%);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .login-box button {
+      background: linear-gradient(135deg, #e94560, #ff6b81);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #error {
+      color: #ff6b81;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>🔐 Login Karo</h2>
+    <input type="text" id="username" placeholder="Username" autocomplete="off"><br>
+
+    <div class="password-wrapper">
+      <input type="password" id="password" placeholder="Password" autocomplete="off">
+      <span onclick="togglePassword()" id="eyeIcon">👁️</span>
+    </div>
+
+    <button onclick="login()">Login</button>
+    <p id="error"></p>
+  </div>
+
+  <script>
+    function togglePassword() {
+      let passField = document.getElementById('password');
+      let eye = document.getElementById('eyeIcon');
+
+      if (passField.type === "password") {
+        passField.type = "text";
+        eye.textContent = "🙈";
+      } else {
+        passField.type = "password";
+        eye.textContent = "👁️";
+      }
+    }
+
+    function login() {
+      let user = document.getElementById('username').value;
+      let pass = document.getElementById('password').value;
+
+      if (user === "amit" && pass === "1234") {
+        window.location.href = "https://amitkumar123-pixel.github.io";
+      } else {
+        document.getElementById('error').textContent = "Galat username ya password!";
+      }
+    }
+  </script>
+
+</body>
+</html>
